@@ -14,13 +14,34 @@
 .button-link:hover{
     background-color: aqua;
 }
-.input_page {
+
+.index_page {
     display: grid;
     justify-items: center;
+    background-color: beige;
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+.container {
+    column-count: 2;
 }
 
 
-header{
+.header{
+    background-color: bisque;
+    font-size: medium;
+    font-family: 'Courier New', Courier, monospace;
+    color: black;
+    padding: 10vh;
+    text-align: center;
+    display: grid;
+    justify-content: center;
+}
+
+
+.footer{
+    display: grid;
+    justify-content: center;
     background-color: bisque;
     font-size: medium;
     font-family: 'Courier New', Courier, monospace;
@@ -28,17 +49,28 @@ header{
     padding: 10vh;
     text-align: center;
 }
-
-.index_page{
-    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-    text-align: center;
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background-color: beige;
+}
+.letter-boxes {
+    display: flex;
+    flex-direction: row;
+    align-items: center; 
 }
 
-footer{
-    background-color: bisque;
-    font-size: medium;
-    font-family: 'Courier New', Courier, monospace;
-    color: black;
-    padding: 10vh;
+.letter-input {
+    width: 20px;
+    height: 20px;
+    text-transform: uppercase;
     text-align: center;
+    font-size: 18px;
+}
+
+.wordle-page {
+    display: grid;
+    justify-content: center;
+    
 }
