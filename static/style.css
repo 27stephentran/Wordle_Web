@@ -72,5 +72,5 @@ body {
 .wordle-page {
     display: grid;
     justify-content: center;
-    
+    background-image: url('static/capybara.png');
 }
