@@ -69,3 +69,10 @@ def add_player(name, attempts, word_id):
     print(f"The player: {name}, takes {attempts} attempts to finish this word with id {word_id}")
     close()
 
+def get_leaderboard(word_id):
+    open()
+    command = f"SELECT * FROM leaderboard WHERE word_id = {word_id} ORDER BY attempts ASC"
+    cursor.execute(command)
+    leaderboard = cursor.fetchall()
+    close()
+    return leaderboard

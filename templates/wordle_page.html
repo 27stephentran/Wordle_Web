@@ -40,5 +40,25 @@
             <p>{{error}}</p>
         </div>
     {% endif %}
+    
+    {% if leaderboard %}
+        <table class = "leaderboard">
+            <tr>
+                <td>Ranking Number</td>
+                <td>Player Name</td>
+                <td>Word They Guessed</td>
+                <td>Number of Attemps</td>
+            </tr>
+            {% for item in leaderboard %}
+                <tr>
+                    <td>{{ leaderboard.index(item) + 1 }}</td>
+                    <td>{{ item[1] }}</td>
+                    <td>{{ item[3] }}</td>
+                    <td>{{ item[2] - 1}}</td>
+                </tr>
+            {% endfor %}
+        </table>
+    {% endif %}
+
 </body>
 </html>

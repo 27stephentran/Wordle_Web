@@ -74,3 +74,10 @@ body {
     justify-content: center;
     background-image: url('static/capybara.png');
 }
+
+.leaderboard {
+    border: solid;
+    border-style: double;
+    border-color: crimson;
+    font-size: 11px;
+}
