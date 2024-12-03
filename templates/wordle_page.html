@@ -10,7 +10,7 @@
     <h1>Wordle Game</h1>
     <form method = "POST", id = "wordle-form">
         <div> 
-            <label for="name">Name:</label> <input type="text" id="name" name="name_input" required> 
+            <label for="name">Name:</label> <input type="text" id="name" name="name_input" required value = "{{ name }}"> 
         </div>
         <div class = "letter-boxes">
             {% for i in range(word_length) %}

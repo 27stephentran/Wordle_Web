@@ -6,6 +6,7 @@ import os
 leaderboard = []
 attempts = 1
 secret_word = ""
+name = ''
 if not os.path.exists("wordle.db"):
     database.make_database()
 # WORDS = database.get_words()
@@ -27,7 +28,7 @@ def index():
 
 @app.route("/wordle_page", methods=["GET", "POST"])
 def wordle_page():
-    global word_id, secret_word, leaderboard, attempts
+    global word_id, secret_word, leaderboard, attempts, name
     secret_word = "pizza"
     word_id  = 2
     print(secret_word)
@@ -37,19 +38,19 @@ def wordle_page():
         guess = [request.form.get(f"letter{i+1}", "").upper()
                  for i in range(len(secret_word))]
         guess_word = "".join(guess)
-
+        
         if len(guess_word) != len(secret_word):
-            return render_template("wordle_page.html", error="Not Enough Letters", word_length=len(secret_word), guess=guess, leaderboard = leaderboard)
+            return render_template("wordle_page_test.html", error="Not Enough Letters", word_length=len(secret_word), guess=guess, leaderboard = leaderboard, name = name)
         
         feedback = check_guess(guess_word, secret_word)
 
         if guess_word == secret_word:
             database.add_player(name, attempts, word_id)
             leaderboard = database.get_leaderboard(word_id)
-            return render_template("wordle_page.html", success=True, feedback=feedback, word_length=len(secret_word), guess=guess, leaderboard = leaderboard)
+            return render_template("wordle_page_test.html", success=True, feedback=feedback, word_length=len(secret_word), guess=guess, leaderboard = leaderboard, name = name)
         
-        return render_template("wordle_page.html", feedback=feedback, word_length=len(secret_word), guess=guess, leaderboard = leaderboard)
-    return render_template("wordle_page.html", word_length=len(secret_word), guess=guess, leaderboard = leaderboard)
+        return render_template("wordle_page_test.html", feedback=feedback, word_length=len(secret_word), guess=guess, leaderboard = leaderboard, name = name)
+    return render_template("wordle_page_test.html", word_length=len(secret_word), guess=guess, leaderboard = leaderboard, name = name)
 
 def check_guess(guess_word, secret_word):
     global attempts
